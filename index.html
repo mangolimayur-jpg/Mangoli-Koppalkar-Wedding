@@ -3,478 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mayur & Madhura - Wedding Invitation</title>
+    <title>Mayur & Madhura Wedding Invitation</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+            background-color: lavender;
+            color: silver;
+            font-family: Arial, sans-serif;
         }
-
-        .invitation-container {
-            max-width: 900px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        /* Header Section */
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 50px 20px;
+        .container {
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            padding: 50px;
         }
-
-        .header::before {
-            content: "🌸";
-            position: absolute;
-            font-size: 80px;
-            opacity: 0.1;
-            top: -20px;
-            right: -20px;
-        }
-
-        .header::after {
-            content: "🌸";
-            position: absolute;
-            font-size: 80px;
-            opacity: 0.1;
-            bottom: -20px;
-            left: -20px;
-        }
-
-        .header h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .header .subtitle {
+        .countdown {
             font-size: 24px;
-            font-weight: 300;
-            letter-spacing: 2px;
-        }
-
-        /* Couple Section */
-        .couple-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            padding: 50px;
-            background: linear-gradient(to bottom, #f8f9ff 0%, #ffffff 100%);
-        }
-
-        .person-card {
-            text-align: center;
-            animation: slideUp 0.6s ease-out;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .person-card:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .photo-placeholder {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
-            color: white;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .photo-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .person-card h2 {
-            color: #764ba2;
-            font-size: 28px;
-            margin-bottom: 8px;
-        }
-
-        .person-card .detail {
-            color: #666;
-            font-size: 14px;
-            margin: 8px 0;
-            line-height: 1.6;
-        }
-
-        .person-card .label {
-            color: #667eea;
-            font-weight: bold;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Events Section */
-        .events-section {
-            padding: 50px;
-            background: white;
-        }
-
-        .events-section h2 {
-            text-align: center;
-            color: #764ba2;
-            font-size: 32px;
-            margin-bottom: 40px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .events-section h2::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-            border-radius: 2px;
-        }
-
-        .events-timeline {
-            position: relative;
-            padding: 20px 0;
-        }
-
-        .event {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 30px;
-            margin-bottom: 40px;
-            align-items: start;
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .event:nth-child(odd) {
-            grid-template-columns: 2fr 1fr;
-        }
-
-        .event:nth-child(odd) .event-details {
-            order: 2;
-        }
-
-        .event:nth-child(odd) .event-marker {
-            order: 1;
-        }
-
-        .event-marker {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .event-marker::before {
-            content: "";
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            box-shadow: 0 0 0 6px rgba(102, 126, 234, 0.2);
-        }
-
-        .event-details {
-            background: linear-gradient(135deg, #f5f7ff 0%, #faf8ff 100%);
-            padding: 25px;
-            border-radius: 12px;
-            border-left: 4px solid #764ba2;
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .event-details:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
-        }
-
-        .event-details h3 {
-            color: #764ba2;
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-
-        .event-details .info {
-            color: #555;
-            margin: 8px 0;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .event-details .info strong {
-            color: #667eea;
-            display: block;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 10px;
-        }
-
-        /* Footer */
-        .footer {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .footer p {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .footer .tagline {
-            font-size: 16px;
-            font-style: italic;
-            opacity: 0.9;
             margin-top: 20px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .couple-section {
-                grid-template-columns: 1fr;
-                padding: 30px;
-            }
-
-            .event {
-                grid-template-columns: 1fr !important;
-            }
-
-            .event-marker {
-                padding: 20px 0;
-            }
-
-            .header h1 {
-                font-size: 36px;
-            }
-
-            .header .subtitle {
-                font-size: 18px;
-            }
-
-            .events-section {
-                padding: 30px;
-            }
-
-            .person-card h2 {
-                font-size: 24px;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="invitation-container">
-        <div class="header">
-            <h1>Together, Mayur & Madhura</h1>
-            <p class="subtitle">REQUEST THE HONOUR OF YOUR PRESENCE</p>
-        </div>
-
-        <div class="couple-section">
-            <!-- Groom -->
-            <div class="person-card">
-                <div class="photo-placeholder" id="groomPhoto">
-                    📷
-                </div>
-                <h2>Mayur Mangoli</h2>
-                <div class="detail">
-                    <span class="label">Groom</span>
-                </div>
-                <div class="detail">
-                    <strong class="label">Education</strong>
-                    Bachelor in Physics
-                </div>
-                <div class="detail">
-                    <strong class="label">Hometown</strong>
-                    Pune
-                </div>
-                <div class="detail">
-                    <strong class="label">Parents</strong>
-                    Sunil Mangoli & Swati Mangoli
-                </div>
-            </div>
-
-            <!-- Bride -->
-            <div class="person-card">
-                <div class="photo-placeholder" id="bridePhoto">
-                    📷
-                </div>
-                <h2>Madhura Koppalkar</h2>
-                <div class="detail">
-                    <span class="label">Bride</span>
-                </div>
-                <div class="detail">
-                    <strong class="label">Education</strong>
-                    Bachelor in Engineering
-                </div>
-                <div class="detail">
-                    <strong class="label">Hometown</strong>
-                    Ballari
-                </div>
-                <div class="detail">
-                    <strong class="label">Parents</strong>
-                    Athmaram Koppalkar & Girija Koppalkar
-                </div>
-            </div>
-        </div>
-
-        <div class="events-section">
-            <h2>🌸 Wedding Events 🌸</h2>
-            
-            <div class="events-timeline">
-                <!-- Event 1 -->
-                <div class="event">
-                    <div class="event-marker"></div>
-                    <div class="event-details">
-                        <h3>Samaradhnya & Haldi</h3>
-                        <div class="info">
-                            <strong>📅 Date:</strong>
-                            Tuesday, April 21st, 2026
-                        </div>
-                        <div class="info">
-                            <strong>⏰ Time:</strong>
-                            6:00 PM onwards
-                        </div>
-                        <div class="info">
-                            <strong>📍 Venue:</strong>
-                            Onkar Colony, Pimple Gurav, Pune, 411061
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Event 2 -->
-                <div class="event">
-                    <div class="event-marker"></div>
-                    <div class="event-details">
-                        <h3>Engagement</h3>
-                        <div class="info">
-                            <strong>📅 Date:</strong>
-                            Saturday, April 25th, 2026
-                        </div>
-                        <div class="info">
-                            <strong>⏰ Time:</strong>
-                            6:00 PM onwards
-                        </div>
-                        <div class="info">
-                            <strong>📍 Venue:</strong>
-                            K.P.T.C.L Samuday Bhavan, Moka Road, Ballari, Karnataka 583101
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Event 3 -->
-                <div class="event">
-                    <div class="event-marker"></div>
-                    <div class="event-details">
-                        <h3>Wedding Muhurta</h3>
-                        <div class="info">
-                            <strong>📅 Date:</strong>
-                            Sunday, April 26th, 2026
-                        </div>
-                        <div class="info">
-                            <strong>⏰ Time:</strong>
-                            12:23 PM onwards
-                        </div>
-                        <div class="info">
-                            <strong>📍 Venue:</strong>
-                            K.P.T.C.L Samuday Bhavan, Moka Road, Ballari, Karnataka 583101
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Event 4 -->
-                <div class="event">
-                    <div class="event-marker"></div>
-                    <div class="event-details">
-                        <h3>Reception</h3>
-                        <div class="info">
-                            <strong>📅 Date:</strong>
-                            Wednesday, April 29th, 2026
-                        </div>
-                        <div class="info">
-                            <strong>⏰ Time:</strong>
-                            6:00 PM onwards
-                        </div>
-                        <div class="info">
-                            <strong>📍 Venue:</strong>
-                            Ganesh Mangal Karyalaya, Lane No. 2, Near HDFC Bank, Trimurti Colony, Pimple Gurav Pune – 411061
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer">
-            <p>🎉 Together, Mayur & Madhura 🎉</p>
-            <p class="tagline">"Two souls, one beautiful journey ahead"</p>
-        </div>
+    <div class="container">
+        <h1>You're Invited to the Wedding of Mayur & Madhura!</h1>
+        <h2>Events:</h2>
+        <ul>
+            <li>Engagement Ceremony: 2026-03-04</li>
+            <li>Mehendi: 2026-03-05</li>
+            <li>Sangeet: 2026-03-06</li>
+            <li>Wedding Ceremony: 2026-03-07</li>
+        </ul>
+        <h2>Family Details:</h2>
+        <p>The families of Mayur and Madhura warmly invite you to join us for our celebration.</p>
+        <div class="countdown" id="countdown"></div>
+        <button onclick="toggleMusic()">🎵 Toggle Music</button>
+        <audio id="weddingMusic" loop>
+            <source src="music/wedding_song.mp3" type="audio/mp3">
+            Your browser does not support the audio tag.
+        </audio>
     </div>
-
+    
     <script>
-        // To add photos, replace the placeholder divs with img tags
-        // Example: 
-        // document.getElementById('groomPhoto').innerHTML = '<img src="images/mayur.jpg" alt="Groom">';
-        // document.getElementById('bridePhoto').innerHTML = '<img src="images/madhura.jpg" alt="Bride">';
+        // Countdown Timer
+        const weddingDate = new Date("2026-03-07T00:00:00").getTime();
+        const countdown = document.getElementById("countdown");
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            countdown.innerHTML = days + " days until the wedding!";
+            
+            if (distance < 0) {
+                clearInterval(x);
+                countdown.innerHTML = "It's time to celebrate!";
+            }
+        }, 1000);
+
+        // Music Toggle Function
+        function toggleMusic() {
+            const music = document.getElementById("weddingMusic");
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
+        }
     </script>
 </body>
 </html>
