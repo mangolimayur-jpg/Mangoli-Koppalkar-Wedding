@@ -6,73 +6,77 @@
     <title>Mayur & Madhura's Wedding Invitation</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #E6E6FA; /* Lavender */
-            color: #4B0082; /* Indigo for text */
+            background-color: #e6e6fa; /* Lavender background */
+            color: #663399; /* Dark purple text */
+            font-family: 'Arial', sans-serif;
         }
         .container {
-            max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
-            border: 2px solid #C0C0C0; /* Silver */
-            border-radius: 10px;
-            background-color: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        h1, h2, h3 {
+            max-width: 800px;
             text-align: center;
+            padding: 20px;
+        }
+        img {
+            width: 200px;
+            margin: 10px;
         }
         .countdown {
-            font-size: 2em;
-            text-align: center;
+            font-size: 24px;
             margin: 20px 0;
-        }
-        .music-toggle {
-            text-align: center;
-            margin: 20px 0;
+            color: #4B0082; /* Indigo */
         }
         audio {
-            width: 100%;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>You're Invited to Our Wedding!</h1>
-        <h2>Mayur & Madhura</h2>
-        <h3>May 20, 2026</h3>
-        <div class="countdown" id="countdown"></div>
-        <h3>Events:</h3>
+        <h1>Welcome to the Wedding of Mayur Mangoli & Madhura Koppalkar</h1>
+        <img src="images/Mayur.jpg" alt="Mayur Mangoli">
+        <img src="images/Madhura.jpg" alt="Madhura Koppalkar">
+        <img src="images/Together.jpg" alt="Together">
+        
+        <h2>Wedding Details</h2>
+        <p>Date: April 26, 2026</p>
+        <p>Join us for a celebration filled with love and joy!</p>
+        
+        <h2>Events Schedule</h2>
         <ul>
-            <li>Mehendi: May 19, 2026</li>
-            <li>Sangeet: May 20, 2026</li>
-            <li>Ceremony: May 20, 2026</li>
-            <li>Reception: May 21, 2026</li>
+            <li>Haldi Ceremony: April 24, 2026</li>
+            <li>Mehendi Ceremony: April 25, 2026</li>
+            <li>Wedding Ceremony: April 26, 2026</li>
+            <li>Reception: April 27, 2026</li>
         </ul>
-        <h3>Family Details:</h3>
-        <p>Mayur's Family: [Details Here]</p>
-        <p>Madhura's Family: [Details Here]</p>
-        <div class="music-toggle">
-            <audio controls>
-                <source src="wedding-music.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-        </div>
+
+        <h2>Family Details</h2>
+        <p>Join our families as we unite in a beautiful celebration.</p>
+
+        <div class="countdown" id="countdown"></div>
+
+        <audio controls>
+            <source src="path/to/wedding-music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <script>
+            // Countdown Timer
+            const weddingDate = new Date("April 26, 2026 00:00:00").getTime();
+            const countdownFunction = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = weddingDate - now;
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                document.getElementById("countdown").innerHTML = days + "d " + hours + "h " +
+                minutes + "m " + seconds + "s ";
+                if (distance < 0) {
+                    clearInterval(countdownFunction);
+                    document.getElementById("countdown").innerHTML = "It's Wedding Day!";
+                }
+            }, 1000);
+        </script>
     </div>
-    <script>
-        // Countdown Timer
-        const weddingDate = new Date('2026-05-20T00:00:00Z');
-        const countdownElement = document.getElementById('countdown');
-        function updateCountdown() {
-            const now = new Date();
-            const timeDifference = weddingDate - now;
-            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-            countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s until the wedding!`;
-        }
-        setInterval(updateCountdown, 1000);
-    </script>
 </body>
 </html>
