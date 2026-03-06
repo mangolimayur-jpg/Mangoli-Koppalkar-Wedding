@@ -1503,8 +1503,8 @@ section {
   height: 60px;
   border-radius: 50%;
   background: white;
-  border: 2px solid var(--gold);
-  color: var(--gold);
+  border: 2px solid #9F86C0;
+  color: #9F86C0;
   font-size: 20px;
   cursor: pointer;
   display: flex;
@@ -1514,14 +1514,31 @@ section {
   transition: all 0.3s ease;
   z-index: 999;
 }
+/* Highlight music button before user clicks */
+.music-toggle.highlight-music {
+  animation: bounce-attention 1.4s infinite ease-in-out;
+}
 
+@keyframes bounce-attention {
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  30% {
+    transform: translateY(-8px);
+  }
+
+  60% {
+    transform: translateY(-4px);
+  }
+}
 .music-toggle:hover {
   transform: scale(1.1);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
 }
 
 .music-toggle.playing {
-  background: var(--gold);
+  background: #9F86C0;
   color: white;
   animation: pulse-ring 2s infinite;
 }
@@ -2392,7 +2409,7 @@ section {
 </footer>
 
 <!-- Music Toggle Button -->
-<button class="music-toggle" id="musicToggle" onclick="toggleMusic()" title="Toggle Music" aria-label="Toggle background music">
+<button class="music-toggle highlight-music" id="musicToggle" onclick="toggleMusic()" title="Click to play wedding music" aria-label="Toggle background music">
   <span id="musicIcon" aria-hidden="true">♪</span>
 </button>
 
@@ -2588,6 +2605,7 @@ window.addEventListener('scroll', function() {
 </body>
 
 </html>
+
 
 
 
